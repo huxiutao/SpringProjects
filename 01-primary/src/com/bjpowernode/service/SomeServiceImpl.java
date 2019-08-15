@@ -6,6 +6,7 @@ public class SomeServiceImpl implements ISomeService {
 	public void doSome() {
 		// TODO Auto-generated method stub
 		System.out.println("Ö´ÐÐdosome£¨£©");
+		System.out.println("Hello Spring !");
 	}
 
 }
