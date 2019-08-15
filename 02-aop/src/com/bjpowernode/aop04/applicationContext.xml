@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 前置通知 -->
+	<bean id="myThrowsAdvice" class="com.bjpowernode.aop04.MyThrowsAdvice"/>
+	
+	<!-- 目标类 -->
+	<bean id="someService" class="com.bjpowernode.aop04.SomeServiceImpl"></bean>
+	
+	<!-- Spring已经定义好了一个代理工厂Bean -->
+	<!-- 生成代理对象的 -->
+	<bean id="someServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="someService"/>
+		<property name="interceptorNames" value="myThrowsAdvice" />
+	</bean>
+</beans>
